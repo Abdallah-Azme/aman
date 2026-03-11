@@ -1,0 +1,332 @@
+{
+  "locale": {
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "navLinks": {
+    "home": "Home",
+    "about": "About",
+    "brands": "Branches",
+    "strategic": "Strategic",
+    "franchise": "Franchise"
+  },
+  "authLinks": {
+    "login": "Login",
+    "register": "Sign up",
+    "or": "or",
+    "logout": "Logout"
+  },
+  "hero": {
+    "badge": "Start Here",
+    "title": "Your Growth Has No Limits",
+    "description": "Sky Limits is a premier investment holding company dedicated to nurturing high-potential brands across diverse industries through strategic capital and operational excellence.",
+    "viewPortfolio": "View Portfolio",
+    "ourMission": "Our mission"
+  },
+  "goalSection": {
+    "title": "The Foundation",
+    "description": "Our Goal",
+    "description2": "Sky Limits is a forward-thinking holding company dedicated to developing and expanding a diverse portfolio of brands.",
+    "learnMore": "Learn More"
+  },
+  "brandsSection": {
+    "title": "Brands",
+    "description": "Building and Managing Brands That Lead Their Markets",
+    "seeAll": "See All",
+    "card": {
+      "badge": "Food & Beverage",
+      "title": "GreenLeaf Foods",
+      "description": "GreenLeaf Foods is a fast-casual dining brand focused on delivering high-quality, sustainable food experiences at scale.",
+      "link": "Brand Details"
+    }
+  },
+  "projectSection": {
+    "title": "Our Feature Projects",
+    "description": "A glimpse into the projects and ideas we’re working on",
+    "card": {
+      "badge": "Coming Soon",
+      "title": "Project Expansion",
+      "description": "Scaling our services to reach new markets."
+    }
+  },
+  "franchise": {
+    "title": "Franchise",
+    "description": "Invest in a Winning Franchise",
+    "description2": "Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
+    "cta": "Become a Franchise"
+  },
+  "strategic": {
+    "title": "Our Strategic Goals",
+    "description": "Driving Long-Term Strategic Growth",
+    "card": {
+      "title": "Sustainable Growth",
+      "description": "We focus on building scalable business models that support consistent, long-term growth while maintaining operational efficiency and financial stability across all brands"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "Meet the People Behind Our Brand"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "description": "Clear answers to common questions about our company, investments, and partnerships.",
+    "faqs": [
+      {
+        "question": "What does Sky Limits do?",
+        "answer": "Sky Limits is a multi-brand company focused on building, managing, and scaling innovative brands across different industries, with a strong emphasis on growth, quality, and long-term value creation."
+      },
+      {
+        "question": "What industries do your brands operate in?",
+        "answer": "Our brands operate across diverse sectors, including food & beverage, retail, services, and other growth-driven industries."
+      },
+      {
+        "question": "Do you offer investment or partnership opportunities?",
+        "answer": "Yes, Sky Limits is open to strategic investment and partnership opportunities that align with our vision, values, and long-term growth objectives."
+      },
+      {
+        "question": "Is franchising available for your brands?",
+        "answer": "Franchising opportunities are available for selected brands. Availability depends on the brand, market, and strategic fit to ensure consistent quality and success."
+      }
+    ]
+  },
+  "contactBox": {
+    "description": "We're here to help turn your ideas into reality. Get in touch and let's take the next step together.",
+    "cta": "Contact Us"
+  },
+   "footer": {
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam",
+      "sections": {
+        "product": {
+          "title": "Product",
+          "links": [
+            "Features",
+            "Pricing",
+            "Case studies",
+            "Reviews",
+            "Updates"
+          ]
+        },
+        "company": {
+          "title": "Company",
+          "links": [
+            "About",
+            "Contact us",
+            "Careers",
+            "Culture",
+            "Blog"
+          ]
+        },
+        "support": {
+          "title": "Support",
+          "links": [
+            "Getting started",
+            "Help center",
+            "Server status",
+            "Report a bug",
+            "Chat support"
+          ]
+        },
+        "contact": {
+          "title": "Contact us",
+          "email": "contact@company.com",
+          "phone": "(414) 687 - 5892",
+          "address": "794 McAllister St, San Francisco, 94102"
+        }
+      },
+      "copyright": "All Rights Reserved",
+      "legal": {
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy"
+      }
+    },
+    "about": {
+      "badge": "Who’s Us",
+      "title": "A strategic holding company building and scaling brands across multiple industries.",
+      "description": "A strategic holding company building and scaling brands across multiple industries.",
+      "learnMore": "Our Offers",
+      "goals":{
+        "title":"The Foundation",
+        "description":"our role goes beyond ownership.",
+        "description2":"Sky Limits is a holding company dedicated to developing and growing high-potential brands across multiple sectors. Through strategic leadership and scalable business models, we enable sustainable growth and long-term value creation.",
+        "learnMore": "Our Vision",
+        "card":{
+          "title":"Mission",
+          "description":"To empower our brands with clear strategy, efficient operations, and long-term investment."
+        }
+      },
+      "statistics":{
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "marketing":"Marketing & Business Growth",
+        "innovation":"Creativity & Innovation",
+        "business":"Business & Financial Management",
+        "link":"About Us"
+      }
+    },
+    "brands":{
+      "badge":"Brands"
+    },
+    "singleBrand":{
+      "badge":"HOYA",
+      "title":"Your daily coffee mood—crafted with care",
+      "description":"Hwaya Café is a modern neighborhood café where quality coffee meets a warm, feel‑good experience. From the first sip to the last detail, we focus on consistency, comfort, and a space you’ll want to come back to",
+      "learnMore":"Brand Profile",
+      "why":{
+        "title":"Why People Choose Hwaya",
+        "card":{
+          "title":"Consistent taste",
+          "description":"Standard recipes and careful preparation in every cup"
+        }
+      },
+      "gallery":"Gallery"
+    },
+        "strategicPage":{
+      "badge":"Vision",
+      "title":"A strategic holding company building and scaling brands across multiple industries.",
+      "description":"A strategic holding company building and scaling brands across multiple industries.",
+      "link":"Contact Us",
+      "goals":{
+        "title":"Our Goals",
+        "description":"Driven by clear goals, guided by a strong strategy, and focused on building brands that grow sustainably and deliver consistent quality at every touchpoint."
+      },
+      "card":{
+        "title":"Operational Excellence",
+        "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
+      }
+    },
+    "franchisePage":{
+      "badge":"Franchise",
+      "title":"Invest in a Winning Franchise",
+      "description":"Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
+      "link":"Apply Now",
+"whyFranchise":"Why Franchise With Us",
+"whyFranchiseCard":"Proven operating model and standardized procedures",
+      "requirements":{
+        "title":"Requirements to Apply",
+        "description":"To ensure mutual success, franchise applicants should meet the following criteria",
+        "list":[
+          "Strong business mindset and hands-on leadership",
+          "Financial capability to cover the initial investment",
+          "Ability to follow brand standards and operating procedures",
+          "Suitable location proposal",
+          "Alignment with our company values and long-term vision"
+        ]
+      },
+      "card":{
+        "title":"Operational Excellence",
+        "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
+      },
+      "form": {
+        "title": "Become a Franchise",
+        "brandName": {
+          "label": "Brand’s Name",
+          "placeholder": "Type your first name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Type your email"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "00 000 0000"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Type your subject"
+        },
+        "industry": {
+          "label": "Industry",
+          "placeholder": "Select industry",
+          "options": {
+            "suggestion": "Suggestion",
+            "food_beverage": "Food & Beverage",
+            "retail": "Retail",
+            "beauty": "Beauty",
+            "education": "Education",
+            "services": "Services"
+          }
+        },
+        "message": {
+          "label": "How Can We Help?",
+          "placeholder": "Placeholder text"
+        },
+        "submit": "Request permit",
+        "submitting": "Submitting...",
+        "errors": {
+          "brandName": {
+            "min": "Brand’s Name must be at least 2 characters",
+            "max": "Brand’s Name is too long"
+          },
+          "email": "Please enter a valid email address",
+          "phone": {
+            "min": "Phone number is too short",
+            "max": "Phone number is too long",
+            "invalid": "Please enter a valid phone number"
+          },
+          "subject": "Subject is too long",
+          "industry": "Please select an industry",
+          "message": {
+            "min": "Please provide more details (at least 10 characters)",
+            "max": "Message is too long"
+          }
+        }
+      }
+    },
+    "terms":{
+      "title":"Privacy Policy",
+      "description":"At Corporate House of Brands, we value your trust. This policy outlines how we handle your personal information across our entire portfolio of brands.",
+      "content":[
+        {
+          "title":"1. Overview",
+          "description":"Corporate House of Brands ('we,' 'us,' or 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information across our diverse portfolio of consumer and technology brands. Whether you're interacting with us through our digital platforms, physical locations, or customer service, we prioritize the security and confidentiality of your personal data.This policy applies to all users worldwide and covers all aspects of our business operations where personal information is processed."
+        }
+      ]
+    },
+    "auth":{
+      "title":"Welcome Back.<br/> Manage your brands <br/> with clarity.",
+      "description":"Access your unified dashboard to oversee performance across all portfolio companies in real-time."
+    },
+    "signIn": {
+      "title": "Sign In",
+      "registerTitle": "Sign up",
+      "subtitle": "Enter your credentials to access the hub",
+      "emailLabel": "Email",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "name@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "submit": "Sign In",
+      "registerSubmit": "Sign Up",
+      "noAccount": "Don’t have an account?",
+      "haveAccount": "Already have an account?",
+      "signUp": "Sign Up",
+      "signIn": "Sign In",
+      "agree":"I agree to the ",
+      "terms":"Terms & Conditions",
+      "privacy":"Privacy Policy",
+      "and":"and",
+      
+
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "passwordMin": "Password must be at least {min} characters"
+      }
+    },
+    "otp":{
+      "title":"Verify Your Email",
+      "subtitle":"We've sent a 6-digit code to",
+      "dontHaveCode":"Didn't receive a code?",
+      "resend":"Resend Code",
+      "submit":"Verify Code",
+      "errors":{
+        "otpRequired":"Please enter a 6-digit code",
+        "otpInvalid":"Invalid OTP"
+      }
+    }
+  
+}
