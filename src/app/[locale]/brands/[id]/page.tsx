@@ -7,45 +7,57 @@ import Gallery from "@/components/shared/gallery";
 import Navbar from "@/components/shared/navbar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import * as motion from "motion/react-client";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { getBrandById } from "@/api/brands";
 
-const BrandDetailsPage = () => {
-  const t = useTranslations("singleBrand");
+const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
+  const t = await getTranslations("singleBrand");
+  const {id} = await params;
+  const brand = await getBrandById(id);
+  const singleBrand = brand?.status ? brand?.data : null;
+
+
+  console.log("brand",brand);
+  
   return (
     <>
       <Navbar />
       <main>
         {/* main content */}
-        <section className="relative lg:h-screen w-full overflow-hidden lg:pt-18 pt-24 flex items-center justify-center">
-          {/* anmated bg */}
-          <InteractiveGridPattern />
-          {/* content */}
-          <div className="container flex items-center justify-between max-lg:flex-col gap-4 ">
+        {singleBrand && (
+          <section className="relative lg:h-screen w-full overflow-hidden lg:pt-18 pt-24 flex items-center justify-center">
+            {/* anmated bg */}
+            <InteractiveGridPattern />
             {/* content */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-              viewport={{ once: true }}
-              className="lg:w-1/2 w-full flex flex-col gap-4 z-1 max-lg:items-center max-lg:text-center "
-            >
-              <CustomBadage text={t("badge")} />
-              <h1 className="lg:text-h2 text-h3 text-gradient">{t("title")}</h1>
-              <p className="lg:text-2xl text-lg">{t("description")}</p>
-              <CustomLink href="/" text={t("learnMore")} />
-            </motion.div>
-            {/* slider */}
-            <motion.div
-              className="lg:w-1/2"
-              initial={{ opacity: 0, y: -100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-              viewport={{ once: true }}
-            >
-              <GoalSlider  />
-            </motion.div>
-          </div>
-        </section>
+            <div className="container flex items-center justify-between max-lg:flex-col gap-4 ">
+              {/* content */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+                viewport={{ once: true }}
+                className="lg:w-1/2 w-full flex flex-col gap-4 z-1 max-lg:items-center max-lg:text-center "
+              >
+                <CustomBadage text={t("badge")} />
+                <h1 className="lg:text-h2 text-h3 text-gradient">
+                  {singleBrand?.title}
+                </h1>
+                <p className="lg:text-2xl text-lg">{singleBrand?.description}</p>
+                {/* <CustomLink href="/" text={t("learnMore")} /> */}
+              </motion.div>
+              {/* slider */}
+              <motion.div
+                className="lg:w-1/2"
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+                viewport={{ once: true }}
+              >
+                <GoalSlider images={singleBrand?.images} />
+              </motion.div>
+            </div>
+          </section>
+        )}
         {/* why people choose */}
         <section className="py-16">
           <div className="container space-y-8">
@@ -92,7 +104,7 @@ const BrandDetailsPage = () => {
           </div>
         </section>
       </main>
-      <ContactBox/>
+      <ContactBox />
       <Footer />
     </>
   );

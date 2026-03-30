@@ -13,6 +13,16 @@ import ContactBox from "@/components/home/contact-box";
 import { getGoals, getVision } from "@/api/startegic";
 import { getTranslations } from "next-intl/server";
 import { GoalItem } from "@/types/home";
+import { getSettings } from "@/api/settings";
+import {
+  FaWhatsapp,
+  FaInstagram,
+  FaTelegramPlane,
+  FaTiktok,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+
 const StrategicPage = async () => {
   const s = await getTranslations("strategicPage");
   let vision;
@@ -29,6 +39,57 @@ const StrategicPage = async () => {
   } else {
     goals = null;
   }
+  const res = await getSettings();
+  const settings = res?.status ? res.data.social_media : null;
+    const socials = [
+      {
+        icon: FaWhatsapp,
+        link: settings.sms ? `https://wa.me/${settings.sms}` : undefined,
+        label: "whatsapp",
+        color: "text-green-500",
+      },
+      {
+        icon: FaFacebookF,
+        link: settings.facebook || undefined,
+        label: "facebook",
+        color: "text-blue-600",
+      },
+      {
+        icon: FaXTwitter,
+        link: settings.twitter || undefined,
+        label: "twitter",
+        color: "text-black",
+      },
+      {
+        icon: FaInstagram,
+        link: settings.instagram || undefined,
+        label: "instagram",
+        color: "text-pink-500",
+      },
+      {
+        icon: FaLinkedinIn,
+        link: settings.linkedin || undefined,
+        label: "linkedin",
+        color: "text-blue-700",
+      },
+      {
+        icon: FaTelegramPlane,
+        link: settings.telegram || undefined,
+        label: "telegram",
+        color: "text-blue-500",
+      },
+      {
+        icon: FaTiktok,
+        link: settings.tiktok || undefined,
+        label: "tiktok",
+        color: "text-black",
+      },
+    ].filter((s) => s.link) as {
+      icon: React.ElementType;
+      link: string; // link is guaranteed to be string because of filter(s => s.link)
+      label: string;
+      color: string;
+      }[];
   const isOdd = (goals?.goals?.length ?? 0) % 2 !== 0;
   return (
     <>
@@ -40,7 +101,7 @@ const StrategicPage = async () => {
             {/* anmated bg */}
             <InteractiveGridPattern />
             {/* content */}
-            <div className="container flex items-center justify-between ">
+            <div className="container flex flex-col items-center justify-between ">
               {/* content */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -54,8 +115,27 @@ const StrategicPage = async () => {
                   {vision?.title}
                 </h1>
                 <p className="lg:text-2xl text-lg">{vision?.description}</p>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <CustomLink href="/" text={s("link")} />
+                </div> */}
+
+                <div className="flex items-center gap-4 ">
+                  {socials.map((s, i) => (
+                    <motion.a
+                      key={s.label}
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ delay: i * 0.05 }}
+                      className="bg-white shadow-lg  rounded-full size-14  flex items-center justify-center hover:scale-110 transition-transform"
+                      title={s.label}
+                    >
+                      <s.icon size={20} className={s?.color} />
+                    </motion.a>
+                  ))}
                 </div>
               </motion.div>
             </div>

@@ -30,3 +30,18 @@ export async function getBrandsPage(){
         return null;
     }
 }
+export async function getBrandById(id: string){
+    try {
+        const response = await fetch(`${brandsApi.brandsPage}/${id}`, {
+            headers: await getHeaders(),
+        });
+        if (!response.ok) {
+            throw new Error("Failed to fetch brand by id");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching brand by id:", error);
+        return null;
+    }
+}

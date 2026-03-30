@@ -135,9 +135,9 @@ export default function LoginForm() {
                 <span>{t("rememberMe")}</span>
               </label>
 
-              <a href="#" className="text-sm text-primary hover:underline">
+              {/* <a href="#" className="text-sm text-primary hover:underline">
                 {t("forgotPassword")}
-              </a>
+              </a> */}
             </div>
 
             {/* Submit */}

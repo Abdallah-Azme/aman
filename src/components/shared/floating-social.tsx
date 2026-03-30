@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
-interface SocialMediaSettings {
+export interface SocialMediaSettings {
   sms?: string;
   facebook?: string;
   twitter?: string;
