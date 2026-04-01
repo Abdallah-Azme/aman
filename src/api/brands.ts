@@ -5,7 +5,8 @@ import { getLocale } from "next-intl/server";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const brandsApi = {
-  brandsPage: `${baseUrl}/brand-page`,
+    brandsPage: `${baseUrl}/brand-page`,
+    brandDetails: `${baseUrl}/brand-details-advanced`,
 }
 
 async function getHeaders(){
@@ -32,7 +33,7 @@ export async function getBrandsPage(){
 }
 export async function getBrandById(id: string){
     try {
-        const response = await fetch(`${brandsApi.brandsPage}/${id}`, {
+        const response = await fetch(`${brandsApi.brandDetails}/${id}`, {
             headers: await getHeaders(),
         });
         if (!response.ok) {

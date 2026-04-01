@@ -10,15 +10,16 @@ import * as motion from "motion/react-client";
 import { getTranslations } from "next-intl/server";
 import { getBrandById } from "@/api/brands";
 
-const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
+const BrandDetailsPage = async ({ params }: { params: { id: string } }) => {
   const t = await getTranslations("singleBrand");
-  const {id} = await params;
+  const { id } = await params;
   const brand = await getBrandById(id);
   const singleBrand = brand?.status ? brand?.data : null;
+  const brandDetails = singleBrand?.brand_details[0];
+  const newData = singleBrand?.new_data[0];
 
+  console.log("brand", brand);
 
-  console.log("brand",brand);
-  
   return (
     <>
       <Navbar />
@@ -38,11 +39,13 @@ const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
                 viewport={{ once: true }}
                 className="lg:w-1/2 w-full flex flex-col gap-4 z-1 max-lg:items-center max-lg:text-center "
               >
-                <CustomBadage text={t("badge")} />
+                <CustomBadage text={brandDetails?.caption} />
                 <h1 className="lg:text-h2 text-h3 text-gradient">
-                  {singleBrand?.title}
+                  {brandDetails?.title}
                 </h1>
-                <p className="lg:text-2xl text-lg">{singleBrand?.description}</p>
+                <p className="lg:text-2xl text-lg">
+                  {brandDetails?.description}
+                </p>
                 {/* <CustomLink href="/" text={t("learnMore")} /> */}
               </motion.div>
               {/* slider */}
@@ -53,7 +56,7 @@ const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
                 transition={{ duration: 1, delay: 1 }}
                 viewport={{ once: true }}
               >
-                <GoalSlider images={singleBrand?.images} />
+                <GoalSlider images={brandDetails?.images} />
               </motion.div>
             </div>
           </section>
@@ -68,11 +71,11 @@ const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              {t("why.title")}
+              {newData?.sub_details_title || "sub details title"}
             </motion.h2>
             {/* cards */}
             <div className="flex flex-wrap gap-4">
-              {Array.from({ length: 5 }).map((_, index) => (
+              {newData?.sub_details?.map((item:{title:string,description:string}, index:number) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
@@ -81,28 +84,30 @@ const BrandDetailsPage = async ({params}: {params: {id: string}}) => {
                   viewport={{ once: true }}
                   className="lg:flex-[0_0_calc(33.333%-1rem)] lg:grow md:flex-[0_0_calc(50%-1rem)] md:grow flex-[0_0_calc(100%-1rem)] flex flex-col gap-4 p-6 border rounded-lg"
                 >
-                  <h3 className="text-h5">{t("why.card.title")}</h3>
-                  <p className="text-body-lg">{t("why.card.description")}</p>
+                  <h3 className="text-h5">{item?.title}</h3>
+                  <div className="text-body-lg" dangerouslySetInnerHTML={{ __html: item?.description }} />
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
         {/* gallery */}
-        <section className="py-16">
-          <div className="container space-y-8">
-            <motion.h2
-              className="text-h3 text-center"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-            >
-              {t("gallery")}
-            </motion.h2>
-            <Gallery />
-          </div>
-        </section>
+        {newData?.gallery?.length > 0 && (
+          <section className="py-16">
+            <div className="container space-y-8">
+              <motion.h2
+                className="text-h3 text-center"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+              >
+                {t("gallery")}
+              </motion.h2>
+              <Gallery images={newData?.gallery} />
+            </div>
+          </section>
+        )}
       </main>
       <ContactBox />
       <Footer />

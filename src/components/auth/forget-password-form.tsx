@@ -17,9 +17,8 @@ import { useUser } from "@/context/user";
 import { Link, useRouter } from "@/i18n/navigation";
 import { Building2, Loader2 } from "lucide-react";
 
-const MIN_PASSWORD = 6;
 
-export default function LoginForm() {
+export default function ForgetPasswordForm() {
   const inputClassName =
     "h-11 bg-input-bg focus-visible:ring-primary/50 border-0";
   const t = useTranslations("signIn");
@@ -30,11 +29,6 @@ export default function LoginForm() {
         .string()
         .min(1, t("errors.emailRequired"))
         .email(t("errors.emailInvalid")),
-      password: z
-        .string()
-        .min(1, t("errors.passwordRequired"))
-        .min(MIN_PASSWORD, t("errors.passwordMin", { min: MIN_PASSWORD })),
-      remember: z.boolean(),
     });
   }, [t]);
 
@@ -42,33 +36,30 @@ export default function LoginForm() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { email: "", password: "", remember: false },
+    defaultValues: { email: ""},
   });
 
-  const { login: loginContext } = useUser();
+  // const { login: loginContext } = useUser();
   const router = useRouter();
 
   const onSubmit = async (values: FormValues) => {
     const data = {
       email: values.email,
-      password: values.password,
     };
-    const res = await login(data);
-    if (res.status) {
-      await loginContext(res.data);
-      toast.success(res.message);
-      router.push("/");
-    } else {
-      toast.error(res.message);
-    }
+    // const res = await login(data);
+    // if (res.status) {
+    //   await loginContext(res.data);
+    //   toast.success(res.message);
+    //   router.push("/");
+    // } else {
+    //   toast.error(res.message);
+    // }
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    watch,
-    setValue,
   } = form;
 
   return (
@@ -107,38 +98,6 @@ export default function LoginForm() {
               )}
             </div>
 
-            {/* Password */}
-            <div className="space-y-2">
-              <Label htmlFor="password">{t("passwordLabel")}</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder={t("passwordPlaceholder")}
-                aria-invalid={!!errors.password}
-                className={inputClassName}
-                {...register("password")}
-              />
-              {errors.password?.message && (
-                <p className="text-sm text-destructive">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
-
-            {/* Remember + Forgot */}
-            <div className="flex items-center justify-between gap-3">
-              <label className="flex items-center gap-2 text-sm">
-                <Checkbox
-                  checked={watch("remember")}
-                  onCheckedChange={(v) => setValue("remember", Boolean(v))}
-                />
-                <span>{t("rememberMe")}</span>
-              </label>
-{/* 
-              <Link href="/forget-password" className="text-sm text-primary hover:underline">
-                {t("forgotPassword")}
-              </Link> */}
-            </div>
 
             {/* Submit */}
             <Button

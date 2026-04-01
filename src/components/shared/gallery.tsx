@@ -9,8 +9,8 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import Image from "next/image";
 
-export default function Gallery() {
-  const images = Array.from({ length: 5 }).map(() => "/gallery.png");
+export default function Gallery({images}: {images: string[]}) {
+  // const images = Array.from({ length: 5 }).map(() => "/gallery.png");
 
   return (
     <div className="w-full">
@@ -21,7 +21,7 @@ export default function Gallery() {
         download={false}
       >
         <div className="flex flex-wrap gap-4">
-          {images.map((src, index) => (
+          {images?.map((src, index) => (
             <a
               key={index}
               href={src}
