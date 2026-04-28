@@ -183,7 +183,9 @@ const Footer = async () => {
 
       <div className="container  py-6 border-t text-white">
         <div className="flex gap-2 items-center justify-center max-md:flex-col">
-          <p className="text-body-sm">{t("copyright")}</p>
+          <p className="text-body-sm">
+            © {new Date().getFullYear()} {settings?.site_name}. {t("copyright")}
+          </p>
           <p className="max-md:hidden">|</p>
           <Link
             href="/terms"

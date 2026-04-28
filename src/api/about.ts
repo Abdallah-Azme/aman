@@ -7,7 +7,8 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 const aboutApi = {
   whoUs: `${baseUrl}/about/who-us`,
     aboutFoundations: `${baseUrl}/about/foundation-details`,
-  info: `${baseUrl}/company-info`,
+    info: `${baseUrl}/company-info`,
+  
 }
 
 async function getHeaders(){

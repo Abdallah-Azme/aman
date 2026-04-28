@@ -1,9 +1,10 @@
 export interface BrandItem {
-    id: number;
+  id: number;
   title: string;
-  caption:string,
-    description: string;
-    image: string;
+  caption: string;
+  description: string;
+  image: string;
+  images: string[];
 }
 
 export interface ProjectItem {

@@ -20,7 +20,6 @@ const AboutPage = async () => {
   } else {
     data = null;
   }
-  console.log(data);
 
   return (
     <>

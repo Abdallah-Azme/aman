@@ -30,7 +30,7 @@ const FranchiseSection = async () => {
             <p className="lg:text-body-xl text-body-md max-lg:text-center">
               {data?.description}
             </p>
-            <CustomLink href="/franchise" text={t("cta")} />
+            {/* <CustomLink href="/franchise" text={t("cta")} /> */}
           </div>
         </div>
       </motion.section>

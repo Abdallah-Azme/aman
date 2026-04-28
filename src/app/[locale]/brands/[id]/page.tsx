@@ -4,6 +4,7 @@ import CustomBadage from "@/components/shared/custom-badage";
 import CustomLink from "@/components/shared/custom-link";
 import Footer from "@/components/shared/footer";
 import Gallery from "@/components/shared/gallery";
+import HtmlContent from "@/components/shared/html-content";
 import Navbar from "@/components/shared/navbar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import * as motion from "motion/react-client";
@@ -18,7 +19,6 @@ const BrandDetailsPage = async ({ params }: { params: { id: string } }) => {
   const brandDetails = singleBrand?.brand_details[0];
   const newData = singleBrand?.new_data[0];
 
-  console.log("brand", brand);
 
   return (
     <>
@@ -85,7 +85,7 @@ const BrandDetailsPage = async ({ params }: { params: { id: string } }) => {
                   className="lg:flex-[0_0_calc(33.333%-1rem)] lg:grow md:flex-[0_0_calc(50%-1rem)] md:grow flex-[0_0_calc(100%-1rem)] flex flex-col gap-4 p-6 border rounded-lg"
                 >
                   <h3 className="text-h5">{item?.title}</h3>
-                  <div className="text-body-lg" dangerouslySetInnerHTML={{ __html: item?.description }} />
+                  <HtmlContent className="text-body-lg" html={item?.description} />
                 </motion.div>
               ))}
             </div>

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import CustomBadage from "../shared/custom-badage";
 import CustomLink from "../shared/custom-link";
+import HtmlContent from "../shared/html-content";
 import { Button } from "../ui/button";
 import { getHero } from "@/api/home";
 import { Link } from "@/i18n/navigation";
@@ -35,7 +36,7 @@ const HeroSection = async () => {
           >
             <CustomBadage text={t("badge")} />
             <h1 className="lg:text-h1 text-h2 text-gradient">{data?.title}</h1>
-            <p className="lg:text-2xl text-lg">{data?.description}</p>
+            <HtmlContent className=" lg:text-2xl text-lg" html={data?.description} />
             <div className="flex items-center gap-4">
               <Link href="/about" className="bg-primary text-white rounded-md px-4 h-10 text-base cursor-pointer flex items-center justify-center hover:bg-primary-hover transition-colors duration-300">
                 {t("viewPortfolio")}

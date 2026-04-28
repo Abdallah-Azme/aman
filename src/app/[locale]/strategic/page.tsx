@@ -22,18 +22,21 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import HtmlContent from "@/components/shared/html-content";
 
 const StrategicPage = async () => {
   const s = await getTranslations("strategicPage");
   let vision;
   let goals: { goals: GoalItem[] } | null;
   const visionResponse = await getVision();
+  
   if (visionResponse?.status) {
     vision = visionResponse?.data;
   } else {
     vision = null;
   }
   const goalsResponse = await getGoals();
+
   if (goalsResponse?.status) {
     goals = goalsResponse?.data;
   } else {
@@ -108,13 +111,16 @@ const StrategicPage = async () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1 }}
                 viewport={{ once: true }}
-                className="  flex flex-col gap-4 z-1 items-center text-center "
+                className="  flex flex-col gap-4 z-1 items-center  "
               >
                 <CustomBadage text={s("badge")} />
                 <h1 className="lg:text-h2 text-h3 text-gradient">
                   {vision?.title}
                 </h1>
-                <p className="lg:text-2xl text-lg">{vision?.description}</p>
+                <HtmlContent
+                  className="lg:text-2xl text-lg"
+                  html={vision?.description}
+                />
                 {/* <div className="flex items-center gap-4">
                   <CustomLink href="/" text={s("link")} />
                 </div> */}

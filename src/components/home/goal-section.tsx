@@ -4,6 +4,7 @@ import CustomLink from "../shared/custom-link";
 import SectionHeader from "../shared/section-header";
 import GoalSlider from "./goal-slider";
 import { getFoundations } from "@/api/home";
+import HtmlContent from "../shared/html-content";
 
 const GoalSection = async () => {
   const t = await getTranslations("goalSection");
@@ -33,9 +34,7 @@ const GoalSection = async () => {
             className="flex flex-col gap-4 lg:w-1/2"
           >
             <SectionHeader title={t("title")} description={data?.title} />
-            <p className="lg:text-body-xl text-body-lg max-lg:text-center">
-              {data?.description}
-            </p>
+            <HtmlContent className="lg:text-body-xl text-body-lg" html={data?.description} />
             <CustomLink href="/about" text={t("learnMore")} />
           </motion.div>
           {/* slider */}

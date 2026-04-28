@@ -9,11 +9,11 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import Image from "next/image";
 
-export default function Gallery({images}: {images: string[]}) {
+export default function Gallery({ images }: { images: any[] }) {
   // const images = Array.from({ length: 5 }).map(() => "/gallery.png");
 
   return (
-    <div className="w-full">
+    <div className="w-full" dir="ltr">
       <LightGallery
         speed={500}
         plugins={[lgThumbnail, lgZoom]}
@@ -21,15 +21,18 @@ export default function Gallery({images}: {images: string[]}) {
         download={false}
       >
         <div className="flex flex-wrap gap-4">
-          {images?.map((src, index) => (
-            <a
-              key={index}
-              href={src}
-              data-src={src}
-              data-sub-html={`<h4>Image ${index + 1}</h4>`}
-              className="group relative overflow-hidden rounded-xl
-                         lg:flex-[0_0_calc(33.333%-1rem)] md:flex-[0_0_calc(50%-1rem)] flex-[0_0_calc(100%-1rem)] grow!"
-            >
+          {images?.map((item, index) => {
+            const src = typeof item === "string" ? item : item?.image;
+            if (!src) return null;
+            return (
+              <a
+                key={index}
+                href={src}
+                data-src={src}
+                data-sub-html={`<h4>Image ${index + 1}</h4>`}
+                className="group relative overflow-hidden rounded-xl
+                           lg:flex-[0_0_calc(33.333%-1rem)] md:flex-[0_0_calc(50%-1rem)] flex-[0_0_calc(100%-1rem)] grow!"
+              >
               <div className="relative w-full lg:max-h-65 md:max-h-52 h-48">
                 <Image
                   src={src}
@@ -41,8 +44,9 @@ export default function Gallery({images}: {images: string[]}) {
               </div>
 
               <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
       </LightGallery>
     </div>

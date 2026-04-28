@@ -21,6 +21,37 @@ type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const res = await getSettings();
+  const settings = res?.status ? res.data : null;
+
+  return {
+    title: {
+      default: settings?.site_name || "Aman",
+      template: `%s | ${settings?.site_name || "Aman"}`,
+    },
+    description: settings?.site_description,
+    icons: {
+      icon: settings?.site_favicon || "/favicon.ico",
+      shortcut: settings?.site_favicon || "/favicon.ico",
+      apple: settings?.site_favicon || "/favicon.ico",
+    },
+    openGraph: {
+      title: settings?.site_name,
+      description: settings?.site_description,
+      images: settings?.site_logo ? [{ url: settings.site_logo }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: settings?.site_name,
+      description: settings?.site_description,
+      images: settings?.site_logo ? [settings.site_logo] : [],
+    },
+  };
+}
+
 export default async function RootLayout({ children, params }: Props) {
   const res = await getSettings();
   const settings = res?.status ? res.data : null;

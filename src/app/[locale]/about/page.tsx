@@ -10,7 +10,7 @@ import CustomProgress from "@/components/shared/custom-progress";
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
-import * as motion from "motion/react-client";
+// import * as motion from "motion/react-client";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 const AboutPage = async () => {
@@ -29,6 +29,7 @@ const AboutPage = async () => {
   } else {
     companyInfo = null;
   }
+
   return (
     <>
       <Navbar />
@@ -41,11 +42,7 @@ const AboutPage = async () => {
           {data && (
             <div className="container flex items-center justify-between max-lg:flex-col gap-4 ">
               {/* content */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-                viewport={{ once: true }}
+              <div
                 className="lg:w-1/2 w-full flex flex-col gap-4 z-1 max-lg:items-center max-lg:text-center "
               >
                 <CustomBadage text={t("badge")} />
@@ -54,17 +51,13 @@ const AboutPage = async () => {
                 </h1>
                 <p className="lg:text-2xl text-lg">{data?.description}</p>
                 <CustomLink href="/" text={t("learnMore")} />
-              </motion.div>
+              </div>
               {/* slider */}
-              <motion.div
+              <div
                 className="lg:w-1/2"
-                initial={{ opacity: 0, y: -100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-                viewport={{ once: true }}
               >
                 <GoalSlider images={data?.images} />
-              </motion.div>
+              </div>
             </div>
           )}
         </section>
@@ -76,11 +69,7 @@ const AboutPage = async () => {
         <TeamSection />
         {/* statisics */}
         {companyInfo?.skills?.length > 0 && (
-          <motion.section
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
+          <section
             className=" py-16"
           >
             <div className="container lg:flex justify-between ">
@@ -136,17 +125,13 @@ const AboutPage = async () => {
                 </Button> */}
               </div>
             </div>
-          </motion.section>
+          </section>
         )}
         {companyInfo?.counters?.length > 0 && (
-          <motion.section
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
+          <section
           >
             <Counters counters={companyInfo?.counters} />
-          </motion.section>
+          </section>
         )}{" "}
       </main>
       <ContactBox />

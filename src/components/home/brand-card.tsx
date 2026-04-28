@@ -10,13 +10,13 @@ const BrandCard = ({ brand }: { brand: BrandItem }) => {
   return (
     <div className="h-full flex flex-col justify-between w-full p-6 bg-grad-primary-secondary rounded-xl space-y-4">
       {/* placeholder */}
-      <div className="size-24 bg-slate-300 rounded-full flex items-center justify-center overflow-hidden">
+      <div className="size-24  bg-slate-300 rounded-full flex items-center justify-center overflow-hidden">
         <Image
-          src={brand?.image}
+          src={brand?.images[0]}
           alt={brand?.title}
           width={100}
           height={100}
-          className="size-20 object-contain"
+          className=" object-cover"
         />
       </div>
       {/* badage */}
